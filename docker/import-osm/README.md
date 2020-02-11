@@ -4,6 +4,8 @@
 This Docker image will import an OSM PBF file using [imposm3](https://github.com/omniscale/imposm3) and
 a [custom mapping configuration](https://imposm.org/docs/imposm3/latest/mapping.html).
 
+Minor improvements: use official imposm3 github repo and added -optimize flag
+
 ## Usage
 
 ### Download PBF File

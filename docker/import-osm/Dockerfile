@@ -4,12 +4,12 @@ LABEL maintainer="YuriAstrakhan@gmail.com"
 ARG PG_MAJOR="11"
 
 # By default for now use custom build until we verify everything is stable
-ARG IMPOSM_REPO="https://github.com/openmaptiles/imposm3.git"
-ARG IMPOSM_VERSION="v2017-10-18"
+#ARG IMPOSM_REPO="https://github.com/openmaptiles/imposm3.git"
+#ARG IMPOSM_VERSION="v2017-10-18"
 
 # Current version, disable for now
-#ARG IMPOSM_REPO="https://github.com/omniscale/imposm3.git"
-#ARG IMPOSM_VERSION="v0.8.1"
+ARG IMPOSM_REPO="https://github.com/omniscale/imposm3.git"
+ARG IMPOSM_VERSION="v0.10.0"
 
 
 ENV IMPORT_DIR=/import \

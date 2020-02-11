@@ -35,6 +35,7 @@ function import_pbf() {
         -read "$pbf_file" \
         -deployproduction \
         -write $diff_flag \
+        -optimize \
         -config "$CONFIG_JSON"
 }
 

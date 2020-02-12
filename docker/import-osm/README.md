@@ -1,10 +1,13 @@
 # Import OSM into PostGIS using imposm3
-[![Docker Automated build](https://img.shields.io/docker/automated/openmaptiles/import-osm.svg)](https://hub.docker.com/r/openmaptiles/import-osm/) [![](https://images.microbadger.com/badges/image/openmaptiles/import-osm.svg)](https://microbadger.com/images/openmaptiles/import-osm "Get your own image badge on microbadger.com")
-
 This Docker image will import an OSM PBF file using [imposm3](https://github.com/omniscale/imposm3) and
 a [custom mapping configuration](https://imposm.org/docs/imposm3/latest/mapping.html).
 
-Minor improvements: use official imposm3 github repo and added -optimize flag
+## Improvements over openmaptiles build
+ - imposm3 v0.10.0
+ - added -optimize flag
+ - Automatic cache detection, preventing overwrite of previous data when importing multiple PBF files or wanting to add new data later on
+ 
+Todo: add automated update functionality
 
 ## Usage
 

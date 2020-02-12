@@ -26,12 +26,31 @@ function import_pbf() {
         echo "Importing in normal mode"
     fi
 
+    local cache_flag=""
+    if [ -d $IMPOSM_CACHE_DIR ]; then
+        # Cache dir exists
+        if [ -z "$(ls -A $IMPOSM_CACHE_DIR)" ]; then
+            # Cache dir empty
+            cache_flag="-overwritecache"
+            echo "No cache contents found, assuming first import and overwriting cache/db"
+        else
+            # Cache dir not empty
+            cache_flag="-appendcache"
+            echo "Cache contents found, appending data to cache/db."
+            echo " If you do not want this please clear the cache directory before running this container"
+        fi
+    else
+        # This should never happen
+        cache_flag="-overwritecache"
+        echo "No cache contents found, assuming first import and overwriting cache/db"
+    fi
+
     imposm import \
         -connection "postgis://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$PGDATABASE" \
         -mapping "$MAPPING_YAML" \
-        -overwritecache \
         -diffdir "$DIFF_DIR" \
         -cachedir "$IMPOSM_CACHE_DIR" \
+        $cache_flag \
         -read "$pbf_file" \
         -deployproduction \
         -write $diff_flag \
